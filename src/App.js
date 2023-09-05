@@ -13,6 +13,7 @@ function App() {
       <Menu />
       <Routes>
         <Route path="/" element={Inicio()} />
+        <Route path="/nacionciencia" element={Inicio()} />
         <Route path="/quienessomos" element={Seccion1()} />
         <Route path="/campamentos" element={Campamentos()} />
         <Route path="/contacto" element={Contacto()} />
