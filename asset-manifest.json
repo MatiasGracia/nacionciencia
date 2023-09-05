@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/nacionciencia/static/js/main.c43bc8ba.js",
+    "static/media/paisaje.jpg": "/nacionciencia/static/media/paisaje.16124ae6589f14882947.jpg",
+    "index.html": "/nacionciencia/index.html",
+    "main.c43bc8ba.js.map": "/nacionciencia/static/js/main.c43bc8ba.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.c43bc8ba.js"
+  ]
+}
