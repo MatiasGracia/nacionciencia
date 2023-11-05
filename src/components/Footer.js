@@ -2,7 +2,8 @@ import React from 'react';
 import { Icon } from '@chakra-ui/react'
 import { FaTiktok, FaInstagram, FaYoutube } from 'react-icons/fa'
 import { Link as RouterLink } from 'react-router-dom';
-import { Box, Flex, Text, VStack } from '@chakra-ui/react';
+import { Box, Flex, Text, VStack, Image } from '@chakra-ui/react';
+import loguito from './imagenes/loguito.png';
 
 function Footer() {
   return (
@@ -16,27 +17,31 @@ function Footer() {
       >
         {/* Sección para el logo */}
         <Box flex="1" mb={4}>
-          <Text fontSize="xl" fontWeight="bold" ml={2}>
-            Nación Ciencia
-          </Text>
+        <RouterLink to="/">
+          <Image
+            src={loguito}  // Asegúrate de tener la ruta correcta a tu imagen.
+            alt="Logo de Nación Ciencia"
+            boxSize={["150px", "210px", "240px", "300px"]} // Ajusta los tamaños según lo que necesites. Estos valores son solo un ejemplo.
+          />
+        </RouterLink>
         </Box>
 
         {/* Sección para las redes sociales */}
         <Box flex="1" textAlign={{ base: "center", md: "left" }} mb={4}>
-          <Text fontWeight="bold">Nuestras redes</Text>
-          <Text mb={4}>Subimos contenido muy interesante que te va a encantar.</Text>
-          <Flex justifyContent={{ base: "center", md: "flex-start" }}>
-            <RouterLink to={{ pathname: "https://www.youtube.com/nacionciencia7038" }} target="_blank">
-              <Icon as={FaYoutube} mr={3} cursor="pointer" />
-            </RouterLink>
-            <RouterLink to={{ pathname: "https://www.instagram.com/nacionciencia" }} target="_blank">
-              <Icon as={FaInstagram} mr={3} cursor="pointer" />
-            </RouterLink>
-            <RouterLink to={{ pathname: "https://www.instagram.com/nacionciencia" }} target="_blank">
-              <Icon as={FaTiktok} cursor="pointer" />
-            </RouterLink>
-          </Flex>
-        </Box>
+    <Text fontWeight="bold">Nuestras redes</Text>
+    <Text mb={4}>Subimos contenido muy interesante que te va a encantar.</Text>
+    <Flex justifyContent={{ base: "center", md: "flex-start" }}>
+        <a href="https://www.youtube.com/channel/UCf0Zkf2rOOdTPd-7fygk1Dw" target="_blank" rel="noopener noreferrer">
+            <Icon as={FaYoutube} mr={3} cursor="pointer" />
+        </a>
+        <a href="https://www.instagram.com/nacionciencia" target="_blank" rel="noopener noreferrer">
+            <Icon as={FaInstagram} mr={3} cursor="pointer" />
+        </a>
+        <a href="https://www.tiktok.com/@nacionciencia?lang=es" target="_blank" rel="noopener noreferrer">
+            <Icon as={FaTiktok} cursor="pointer" />
+        </a>
+    </Flex>
+</Box>
 
         {/* Sección para las páginas */}
         <Box flex="1" textAlign={{ base: "center", md: "right" }}>

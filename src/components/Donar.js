@@ -33,18 +33,30 @@ function Donar() {
 
       {/* Sección de botones */}
       <Center py={6}>
-        <HStack spacing={4} wrap="wrap">
-          <Button variant="solid" colorScheme="yellow" width={["100%", "250px"]} height={["50px", "60px"]} backgroundColor="#FFDE59">
+    <HStack spacing={4} wrap="wrap">
+        <Button 
+            variant="solid" 
+            colorScheme="yellow" 
+            width={["100%", "250px"]} 
+            height={["50px", "60px"]} 
+            backgroundColor="#FFDE59"
+            onClick={() => window.open("https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848abc9ff6018ac00863ee0251", "_blank")}
+        >
             Donar una vez
-          </Button>
-          <Button variant="solid" colorScheme="yellow" width={["100%", "250px"]} height={["50px", "60px"]} backgroundColor="#FFDE59">
+        </Button>
+        <Button 
+            variant="solid" 
+            colorScheme="yellow" 
+            width={["100%", "250px"]} 
+            height={["50px", "60px"]} 
+            backgroundColor="#FFDE59"
+            onClick={() => window.open("https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848abc9fed018ac006585b0285", "_blank")}
+        >
             Donar Mensualmente
-          </Button>
-          <Button variant="solid" colorScheme="yellow" width={["100%", "250px"]} height={["50px", "60px"]} backgroundColor="#FFDE59">
-            Modificar Monto Mensual
-          </Button>
-        </HStack>
-      </Center>
+        </Button>
+    </HStack>
+</Center>
+
 
       {/* Sección de imágenes pequeñas */}
       <HStack justifyContent="center" spacing={4}>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Box, Flex, Text, Button, VStack, Center, Image, Stack, Heading } from '@chakra-ui/react';
-import paisaje from './imagenes/paisaje.jpg';
+import paisaje from './imagenes/uno.jpg';
+
+
 
 function CardComponent({ title, description, buttons, alignment, ...props }) {
   return (
@@ -12,11 +14,17 @@ function CardComponent({ title, description, buttons, alignment, ...props }) {
       {...props}
     >
       <Image
-        objectFit='cover'
-        maxW={{ base: '100%', sm: '250px' }} 
-        src={paisaje}
-        alt={title}
-      />
+  objectFit='cover'
+  maxW={{ base: '100%', sm: '250px' }}
+  src={paisaje}
+  alt={title}
+  ml={4}  // Esto añade un margen izquierdo. Puedes ajustar el valor según lo que necesites.
+  style={{
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',  // Añade una sombra suave a la imagen
+    borderRadius: '4px'  // Opcional: añade bordes redondeados para darle un toque más estilizado
+  }}
+/>
+
       <Stack spacing={4}>
         <Box p={4}>
           <Heading size='md'>{title}</Heading>
@@ -25,7 +33,13 @@ function CardComponent({ title, description, buttons, alignment, ...props }) {
         <Box p={4}>
           <Stack direction={{ base: 'column', sm: 'row' }} spacing={4}>
             {buttons.map((btn, index) => (
-              <Button key={index} variant={btn.variant} colorScheme={btn.colorScheme} backgroundColor={btn.backgroundColor}>
+              <Button
+                key={index}
+                variant={btn.variant}
+                backgroundColor={btn.backgroundColor}
+                color={btn.color}
+                onClick={() => window.open(btn.link, "_self")}
+              >
                 {btn.label}
               </Button>
             ))}
@@ -41,13 +55,24 @@ function Inicio() {
     <Box>
       {/* Sección superior con imagen de fondo */}
       <Box
-        bgImage={paisaje}
-        bgPosition="center"
-        bgRepeat="no-repeat"
-        bgSize="cover"
-        height={["300px", "450px"]} 
+        position="relative"  // Necesario para posicionar el pseudo-elemento
+        height={["300px", "450px"]}
         color="white"
-        py={4} 
+        py={4}
+        _before={{
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: `url(${paisaje})`,
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          filter: 'brightness(50%)',  // Oscurece la imagen de fondo
+          zIndex: -1  // Asegura que el contenido esté encima del fondo
+        }}
       >
         <Center height="100%">
           <VStack spacing={2}>
@@ -59,16 +84,18 @@ function Inicio() {
             </Text>
           </VStack>
         </Center>
+
+
       </Box>
 
       {/* Sección blanca superior */}
       <Box backgroundColor="white" py={4}>
-        <CardComponent 
+        <CardComponent
           title="¡Postulá al Lemniscato!"
           description="Conocé más sobre nuestros campamentos y experiencias únicas."
           buttons={[
-            { label: "Saber más", variant: "solid", colorScheme: "yellow", backgroundColor:"#FFDE59" },
-            { label: "Postular", variant: "solid", colorScheme: "yellow", backgroundColor:"#FFDE59" }
+            { label: "Saber más", variant: "solid", colorScheme: "yellow", backgroundColor: "#FFDE59", link: "/Lemniscato" },
+            { label: "Postular", variant: "solid", colorScheme: "yellow", backgroundColor: "#FFDE59", link: "https://docs.google.com/forms/d/e/1FAIpQLSfb1Qngd_Sg3NzfUGhnWGF9gLJTmz_3_1tglAdjEZG_si4tRQ/viewform" }
           ]}
           alignment="right"
         />
@@ -76,11 +103,11 @@ function Inicio() {
 
       {/* Sección amarilla */}
       <Box backgroundColor="#FFDE59" py={4}>
-        <CardComponent 
-          title="Sumate a tu delegación más cercana"
-          description="Hacemos juntadas todos los meses en distintos puntos de latinamérica."
+        <CardComponent
+          title="NexCognita"
+          description="Próximamente..."
           buttons={[
-            { label: "Delegaciones", variant: "solid", backgroundColor: "white", color: "black" }
+            { label: "Saber más", variant: "solid", colorScheme: "yellow", backgroundColor: "#white", link: "/Nexcognita" },
           ]}
           alignment="left"
         />
@@ -88,12 +115,12 @@ function Inicio() {
 
       {/* Sección blanca inferior */}
       <Box backgroundColor="white" py={4}>
-        <CardComponent 
+        <CardComponent
           title="Sé voluntario o postula tu proyecto"
           description="En proyectopia conectamos proyectos de ciencia y educación con los voluntarios que necesitan."
           buttons={[
-            { label: "Ser voluntario", variant: "solid", colorScheme: "yellow", backgroundColor:"#FFDE59"},
-            { label: "Postular mi proyecto", variant: "solid", colorScheme: "yellow", backgroundColor:"#FFDE59" }
+            { label: "Ser voluntario", variant: "solid", colorScheme: "yellow", backgroundColor: "#FFDE59", link: "https://docs.google.com/document/d/160fMejJRK_5kFtMchH02InRKc1R0b6DS6oAAxDKIXII/edit" },
+            { label: "Postular mi proyecto", variant: "solid", colorScheme: "yellow", backgroundColor: "#FFDE59", link: "https://docs.google.com/forms/d/e/1FAIpQLSe_F6ZYhZQAFGKK2-iNq1YOCmFnDkayIOw3_aJQqa9l891G_w/viewform" }
           ]}
           alignment="right"
         />

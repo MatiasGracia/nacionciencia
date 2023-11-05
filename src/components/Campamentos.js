@@ -24,11 +24,18 @@ function CardComponent({ title, description, buttons, alignment, ...props }) {
         </Box>
         <Box p={4}>
           <Stack direction={{ base: 'column', sm: 'row' }} spacing={4}>
-            {buttons.map((btn, index) => (
-              <Button key={index} variant={btn.variant} colorScheme={btn.colorScheme} backgroundColor={btn.backgroundColor}>
-                {btn.label}
-              </Button>
-            ))}
+          {buttons.map((btn, index) => (
+    <Button 
+        key={index} 
+        variant={btn.variant} 
+        backgroundColor={btn.backgroundColor} 
+        color={btn.color}
+        onClick={() => window.open(btn.link, "_self")}
+    >
+        {btn.label}
+    </Button>
+))}
+
           </Stack>
         </Box>
       </Stack>
@@ -52,7 +59,7 @@ function Campamentos() {
         <Center height="100%">
           <VStack spacing={2}>
             <Text fontSize={["2xl", "5xl"]} fontWeight="bold">
-              CAMPAMENTOS
+              PROGRAMAS
             </Text>
           </VStack>
         </Center>
@@ -68,25 +75,50 @@ function Campamentos() {
       {/* Sección amarilla */}
       <Box backgroundColor="#FFDE59" py={4}>
         <CardComponent 
-          title="Lemniscato virtual"
+          title="Lemniscato"
           description="Es un campamento virtual dirigido a jóvenes de entre 18 a 25 años interesados por las STEM, jóvenes que busquen sumergirse en una experiencia única de 3 a 5 días, que deseen generar vínculos y contactos con personas de diferentes áreas del conocimiento que puedan ser de utilidad en el futuro y que se diviertan adquiriendo conocimientos y herramientas útiles en el proceso. Utilizaremos distintas herramientas digitales para emular que estamos todos juntos en un hotel, además de que nos conectamos mañana, tarde y noche para fortalecer esta sensación de cercanía."
           buttons={[
-            { label: "Saber más", variant: "solid", backgroundColor: "white", color: "black" },
-            { label: "Postular", variant: "solid", backgroundColor: "white", color: "black" }
-          ]}
+            { 
+                label: "Saber más", 
+                variant: "solid", 
+                backgroundColor: "white", 
+                color: "black",
+                link: "/Lemniscato"
+            },
+            { 
+                label: "Postular", 
+                variant: "solid", 
+                backgroundColor: "white", 
+                color: "black",
+                link: "https://docs.google.com/forms/d/e/1FAIpQLSfb1Qngd_Sg3NzfUGhnWGF9gLJTmz_3_1tglAdjEZG_si4tRQ/viewform"
+            }
+        ]}
           alignment="left"
         />
       </Box>
 
       {/* Sección blanca inferior */}
-      <Box backgroundColor="white" py={4}>
+      <Box backgroundColor="#white" py={4}>
         <CardComponent 
-          title="Lemniscato presencial"
-          description="La misma propuesta que el Lemniscato virtual, solo que en un campamento presencial con nuevas actividades. Te recomendamos pasar por la versión virtual y luego sumarte a esta versión."
+          title="Nexcognita"
+          description="No se la info"
           buttons={[
-            { label: "Proximamente", variant: "solid", colorScheme: "yellow", backgroundColor:"#FFDE59"}
-          ]}
-          alignment="right"
+            { 
+                label: "Saber más", 
+                variant: "solid", 
+                backgroundColor: "#FFDE59", 
+                color: "black",
+                link: "/Nexcognita"
+            },
+            { 
+                label: "Postular", 
+                variant: "solid", 
+                backgroundColor: "#FFDE59", 
+                color: "black",
+                link: "https://docs.google.com/forms/d/e/1FAIpQLSfb1Qngd_Sg3NzfUGhnWGF9gLJTmz_3_1tglAdjEZG_si4tRQ/viewform"
+            }
+        ]}
+          alignment="left"
         />
       </Box>
     </Box>

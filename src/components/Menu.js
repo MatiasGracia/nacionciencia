@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Box, Flex, Text, IconButton, Button } from '@chakra-ui/react';
+import { Box, Flex, Text, IconButton, Button, Image } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import loguito from './imagenes/loguito.png';
+
+
 
 function Menu() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -26,9 +29,12 @@ function Menu() {
         fontFamily="Josefin Sans, sans-serif"
       >
         <RouterLink to="/">
-          <Text fontSize="xl" fontWeight="bold" ml={2} cursor="pointer" onClick={closeMenu}>
-            Nación Ciencia
-          </Text>
+          <Image
+            src={loguito}  // Asegúrate de tener la ruta correcta a tu imagen.
+            alt="Logo de Nación Ciencia"
+            boxSize={["50px", "70px", "90px", "100px"]} // Ajusta los tamaños según lo que necesites. Estos valores son solo un ejemplo.
+            onClick={closeMenu}
+          />
         </RouterLink>
 
         <IconButton
@@ -57,7 +63,7 @@ function Menu() {
               <Text mr={4} cursor="pointer">Quienes Somos</Text>
             </RouterLink>
             <RouterLink to="/campamentos" onClick={closeMenu}>
-              <Text mr={4} cursor="pointer">Campamentos</Text>
+              <Text mr={4} cursor="pointer">Programas</Text>
             </RouterLink>
             <RouterLink to="/contacto" onClick={closeMenu}>
               <Text mr={4} cursor="pointer">Contacto</Text>
